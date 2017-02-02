@@ -9,8 +9,13 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import Perf from 'react-addons-perf';
+
+// Access via remote debug console in the "debuggerWorker.js" environment
+window.Perf = Perf;
 
 export default class PerfNative2 extends Component {
   render() {
@@ -20,12 +25,11 @@ export default class PerfNative2 extends Component {
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          {this.state.count}
         </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <TouchableOpacity onPress={() => this.setState({ count: this.state.count + 1 })}>
+          <Text>+</Text>
+        </TouchableOpacity>
       </View>
     );
   }
