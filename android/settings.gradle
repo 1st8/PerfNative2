@@ -1,0 +1,3 @@
+rootProject.name = 'PerfNative2'
+
+include ':app'
